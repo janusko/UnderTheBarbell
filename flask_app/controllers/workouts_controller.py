@@ -116,6 +116,7 @@ def new_comment_form(id):
     workout = Workout.get_workout_by_id(data)
     return render_template('comment_on.html', workout=workout, user=user)
 
+
 @app.route('/workouts/<int:id>/create_comment', methods=['POST'])
 def leave_comment(id):
     if not "user_id" in session:
