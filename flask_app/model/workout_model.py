@@ -54,7 +54,7 @@ class Workout:
 
     @classmethod
     def get_all(cls):
-        query = "SELECT * FROM workouts JOIN users ON users.id = workouts.user_id;"
+        query = "SELECT * FROM workouts JOIN users ON users.id = workouts.user_id ORDER BY date DESC;"
         results =  connectToMySQL(DATABASE).query_db(query)
         if results:
             all_workouts = []
@@ -100,7 +100,7 @@ class Workout:
 
     @classmethod
     def get_workout_by_date(cls, data):
-        query = "SELECT * FROM workouts WHERE date = %(date)s;"
+        query = "SELECT * FROM workouts WHERE date = %(date)s ORDER BY date DESC;"
         results = connectToMySQL(DATABASE).query_db(query, data)
         if len(results) < 1:
             return False
@@ -133,7 +133,7 @@ class Workout:
 
     @classmethod
     def leave_comment(cls, data):
-        query = "UPDATE workouts SET comments = %(comments)s WHERE id = %()s;"
+        query = "UPDATE workouts SET comments = %(comments)s WHERE id = %(id)s;"
         return connectToMySQL(DATABASE).query_db(query, data)
 
 

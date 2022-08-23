@@ -27,7 +27,10 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    {% if user.admin == 9 %}
+                    <th>User</th>
+                    {% endif %}
+                    <th>Workout Name</th>
                     <th>Date</th>
                     <th>Number of Reps</th>
                     <th>Action</th>
@@ -37,6 +40,9 @@
                 {% for workout in all_workouts %}
                 {% if session['user_id'] == workout.user_id or user.admin == 9 %}
                 <tr>
+                    {% if user.admin == 9 %}
+                    <td>{{workout.athlete.first_name}} {{workout.athlete.last_name}}</td>
+                    {% endif %}
                     <td><a href="/workouts/{{workout.id}}">{{workout.name}}</a></td>
                     <td><a href="/workouts/{{workout.date}}/by_date">{{workout.date}}</a></td>
                     <td>{{workout.reps}}</td>
