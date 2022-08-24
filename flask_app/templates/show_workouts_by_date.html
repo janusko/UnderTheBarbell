@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Workouts</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
+
 <body>
     <div class="container">
 
@@ -24,22 +26,61 @@
         <!-- WORKOUT INFO -->
 
         {% for workout in workouts %}
+        {% if id == session['user_id'] or user.admin == 9 %}
         <div class="">
             <div class="d-flex justify-content-between mt-5 mx-5">
-                <h3> {{ workout.name }} on {{ workout.date }}</h3>
+                <!-- <h3> {{ workout.name }} on {{ workout.date }}</h3> -->
             </div>
-                <div class="mx-5">
+            <div>
+                <table class="table table-striped container">
+                    <thead>
+                        {% if user.admin == 0 %}
+                        <p class="user-workouts">{{user.first_name}}'s workouts:</p>
+                        {% endif %}
+                        <tr>
+                            {% if user.admin == 9 %}
+                            <th>User</th>
+                            {% endif %}
+                            <th>Workout Name</th>
+                            <th>Number of Reps</th>
+                            <th>Date</th>
+                            <th>PT Comments:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for workout in all_workouts %}
+                        {% if session['user_id'] == workout.user_id or user.admin == 9 %}
+                        <tr>
+                            {% if user.admin == 9 %}
+                            <td>{{workout.athlete.first_name}} {{workout.athlete.last_name}}</td>
+                            {% endif %}
+                            <td>{{workout.name}}</a></td>
+                            <td>{{workout.reps}}</td>
+                            <td>{{workout.date}}</td>
+                            <td>{{workout.comments}}</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- <div class="mx-5">
+                {% if user.admin == 9 %}
+                <p>User ID: <a href="">{{ workout.user_id }}</a></p>
+                {% endif %}
                 <p>Number of Reps: {{ workout.reps }}</p>
                 <p>Workout Notes: {{ workout.description }}</p>
-                
+
                 <a href="/workouts/{{workout.id}}/edit">edit</a> |
                 <a href="/workouts/{{workout.id}}/delete">delete</a>
             </div>
             <div class="mx-5 mt-3">
                 <p>Comments from your PT: {{ workout.comments }}</p>
-            </div>
+            </div> -->
+            {% endif %}
             {% endfor %}
         </div>
     </div>
 </body>
+
 </html>

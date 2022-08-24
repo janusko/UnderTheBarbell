@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style-type: none;
+    font-family: sans-serif;
+}
+
+
+
+/* GENERIC */
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+
+
+/* BODY */
+
+a {
+    text-decoration: none;
+}
+
+
+/* NAV BAR */
+
+.navbar {
+    background-color: rgb(10,86,216);
+    color: white;
+    width: 100%;
+    height: 100px;
+}
+
+.navbar .btn-dashboard, .btn-workouts {
+    color: rgb(10,86,216);
+}
+
+/* .navbar .btn-workouts {
+    color: white;
+} */
+
+.navbar .btn {
+    margin-right: 10px;
+}
+
+.navbar .btn-logout {
+    margin-right: 40px;
+}
+
+.navbar li {
+    margin: 40px;
+}
+
+.navbar h1 {
+    margin-left: 40px;
+    color: white;
+}
+
+.navbar h1 a {
+    color: white;
+}
+
+.below-nav-bar-logo {
+    width: 100%;
+}
+
+
+
+.welcome-name {
+    margin: 50px 0 20px 100px;
+}
+
+/* WORKOUT LINKS */
+
+.workout-content {
+    margin-top: 40px;
+}
+
+.workout-content a {
+    margin-top: 80px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.workout-content img {
+    width: 100%;
+}
+
+.video {
+    margin-left: 10%;;
+    margin-top: 20px;
+}
+
+.workout-notes img {
+    width: 400px;
+}
+
+.workout-name {
+    background-color: rgb(10,86,216);
+    color: white;
+    width: 300px;
+    height: auto;
+    border: 2px solid black;
+    box-shadow: 6px 6px black;
+    font-weight: lighter;
+    padding: 10px 10px;
+    /* border-radius: 20px; */
+    margin-left: 40%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.workout-name-long {
+    background-color: rgb(10,86,216);
+    color: white;
+    width: 400px;
+    height: auto;
+    border: 2px solid black;
+    box-shadow: 6px 6px black;
+    font-weight: lighter;
+    padding: 10px 10px;
+    /* border-radius: 10px; */
+    margin-left: 36.5%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.workout-name-x-long {
+    background-color: rgb(10,86,216);
+    color: white;
+    width: 600px;
+    height: auto;
+    border: 2px solid black;
+    box-shadow: 6px 6px black;
+    font-weight: lighter;
+    padding: 10px 10px;
+    /* border-radius: 10px; */
+    margin-left: 30%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}

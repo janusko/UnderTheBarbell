@@ -9,18 +9,32 @@ bcrypt = Bcrypt(app)
 ## bcrypt.check_password_hash(hashed_password, password_string)
 
 
-
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
+@app.route('/registration_page')
 def index():
     if "user_id" in session:
         return redirect('/welcome')
-    return render_template('index.html')
+    return render_template('registration.html')
 
 
 @app.route('/welcome')
 def success():
     if not "user_id" in session:
-        return redirect('/')
+        return redirect('/registration_page')
     user = User.get_by_id({'id': session['user_id']})
     all_workouts = Workout.get_all()
     return render_template('welcome.html', user=user, all_workouts=all_workouts)
@@ -29,7 +43,7 @@ def success():
 @app.route('/register', methods=['POST'])  ## register() is an action route, so we need to redirect
 def register():
     if not User.validate_user(request.form):
-        return redirect('/')
+        return redirect('/registration_page')
     hashed_pw = bcrypt.generate_password_hash(request.form['password'])  ## if form data looks good, before creating a user -> hash the password. Access string we want to hash through request.form['password'] <- incoming password
     register_data = {           ## entered information from form
         **request.form,         ## copies whole form
@@ -52,10 +66,10 @@ def login():
     user_from_db = User.get_by_email(data) ## will either hold the user or return False if no user found -> models/get_by_email
     if not user_from_db:
         flash("Invalid Credentials", "log")
-        return redirect('/')
+        return redirect('/registration_page')
     if not bcrypt.check_password_hash(user_from_db.password, request.form['password']): ## checking user_in_db's hashed password against entered password  --hashed password in register
         flash("Invalid Credentials", "log")
-        return redirect('/')
+        return redirect('/registration_page')
     session["user_id"] = user_from_db.id  ## email was in db and password matches, so we store user's id in session
     return redirect('/welcome')
 
@@ -63,4 +77,4 @@ def login():
 @app.route('/users/logout')
 def logout():
     del session['user_id']
-    return redirect('/')
+    return redirect('/registration_page')

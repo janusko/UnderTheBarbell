@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style-type: none;
+    font-family: sans-serif;
+}
+
+
+
+/* GENERIC */
+
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-around {
+    justify-content: space-around;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-evenly {
+    justify-content: space-evenly;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+
+
+/* BODY */
+
+a {
+    text-decoration: none;
+}
+
+
+/* NAV BAR */
+
+.navbar {
+    background-color: rgb(10,86,216);
+    color: white;
+    width: 100%;
+    height: 100px;
+}
+
+.navbar .btn-dashboard, .btn-workouts {
+    color: rgb(10,86,216);
+}
+
+/* .navbar .btn-workouts {
+    color: white;
+} */
+
+.navbar .btn {
+    margin-right: 10px;
+}
+
+.navbar .btn-logout {
+    margin-right: 40px;
+}
+
+.navbar li {
+    margin: 40px;
+}
+
+.navbar h1 {
+    margin-left: 40px;
+}
+
+.navbar a {
+    color: white;
+}
+
+.below-nav-bar-logo {
+    width: 100%;
+}
+
+
+
+.welcome-name {
+    margin: 50px 0 20px 100px;
+}
+
+
+/* ADD FORM */
+
+.add-form {
+    margin: 20px 0 20px 100px;
+    background-color: rgb(10,86,216);
+    color: white;
+    width: 35%;
+    height: auto;
+    border: 2px solid black;
+    box-shadow: 6px 6px black;
+    font-weight: lighter;
+    padding: 20px 20px;
+}
+
+.add-form input, select, textarea {
+    margin-bottom: 10px;;
+}
+
+.add-form .btn {
+    margin-top: 10px;
+}
+
+.form-control {
+    width: 400px;
+}
+
+.flash {
+    margin-left: 100px;
+}
+
+
+/* IMAGE */
+
+.right-logo img {
+    width: 400px;
+    margin-left: 60%;
+    margin-top: 60px;
+}
