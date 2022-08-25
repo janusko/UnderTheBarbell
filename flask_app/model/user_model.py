@@ -35,12 +35,28 @@ class User:
         return cls(results[0])
 
     @classmethod
+    def get_all_users(cls):
+        query = "SELECT * FROM users"
+        results = connectToMySQL(DATABASE).query_db(query)
+        all_users = []
+        for row_in_db in results:
+            user_instance = cls(row_in_db)
+            all_users.append(user_instance)
+        return all_users
+
+    @classmethod
     def get_by_email(cls, data):  ## To look up a user by email -- one account/one email
         query = "SELECT * FROM users WHERE email = %(email)s;"
         results = connectToMySQL(DATABASE).query_db(query, data)
         if len(results) < 1:      ## checking if email was in database. if 0 found return false
             return False
         return cls(results[0])    ## if we find a user, we get back the user object
+
+    @classmethod
+    def create_admin(cls, data):
+        query = "UPDATE users SET admin = 9 WHERE id = %(id)s;"
+        return connectToMySQL(DATABASE).query_db(query, data)
+
 
 
 

@@ -118,18 +118,20 @@ class Workout:
         results = connectToMySQL(DATABASE).query_db(query, data)
         if len(results) < 1:
             return False
+        all_workouts = []
         if results:
-            row = results[0]
-            this_workout = cls(row)
-            user_data = {
-                **row,
-                'id' : row['users.id'],
-                'created_at' : row['users.created_at'],
-                'updated_at' : row['users.updated_at']
-            }
-        workout_athlete = user_model.User(user_data)
-        this_workout.athlete = workout_athlete
-        return this_workout
+            for row in results:
+                this_workout = cls(row)
+                user_data = {
+                    **row,
+                    'id' : row['users.id'],
+                    'created_at' : row['users.created_at'],
+                    'updated_at' : row['users.updated_at']
+                }
+                workout_athlete = user_model.User(user_data)
+                this_workout.athlete = workout_athlete
+                all_workouts.append(this_workout)
+            return all_workouts
 
     @classmethod
     def leave_comment(cls, data):

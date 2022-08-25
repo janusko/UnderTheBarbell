@@ -40,6 +40,12 @@ def success():
     return render_template('welcome.html', user=user, all_workouts=all_workouts)
 
 
+@app.route('/users/logout')
+def logout():
+    del session['user_id']
+    return redirect('/registration_page')
+
+
 @app.route('/register', methods=['POST'])  ## register() is an action route, so we need to redirect
 def register():
     if not User.validate_user(request.form):
@@ -74,7 +80,19 @@ def login():
     return redirect('/welcome')
 
 
-@app.route('/users/logout')
-def logout():
-    del session['user_id']
-    return redirect('/registration_page')
+@app.route('/add/admin')
+def add_admin_form():
+    if not "user_id" in session:
+        return redirect('/registration_page')
+    all_users = User.get_all_users()
+    return render_template('add_admin.html', all_users=all_users)
+
+@app.route('/update/admin', methods=['POST'])
+def add_admin():
+    if not "user_id" in session:
+        return redirect('/registration_page')
+    data = {
+        'id' : request.form['id']
+    }
+    User.create_admin(data)
+    return redirect('/welcome')

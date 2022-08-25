@@ -25,11 +25,8 @@
 
         <!-- WORKOUT INFO -->
 
-        {% for workout in workouts %}
-        {% if id == session['user_id'] or user.admin == 9 %}
         <div class="">
             <div class="d-flex justify-content-between mt-5 mx-5">
-                <!-- <h3> {{ workout.name }} on {{ workout.date }}</h3> -->
             </div>
             <div>
                 <table class="table table-striped container">
@@ -48,7 +45,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for workout in all_workouts %}
+                        {% for workout in workouts %}
                         {% if session['user_id'] == workout.user_id or user.admin == 9 %}
                         <tr>
                             {% if user.admin == 9 %}
@@ -64,21 +61,6 @@
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="mx-5">
-                {% if user.admin == 9 %}
-                <p>User ID: <a href="">{{ workout.user_id }}</a></p>
-                {% endif %}
-                <p>Number of Reps: {{ workout.reps }}</p>
-                <p>Workout Notes: {{ workout.description }}</p>
-
-                <a href="/workouts/{{workout.id}}/edit">edit</a> |
-                <a href="/workouts/{{workout.id}}/delete">delete</a>
-            </div>
-            <div class="mx-5 mt-3">
-                <p>Comments from your PT: {{ workout.comments }}</p>
-            </div> -->
-            {% endif %}
-            {% endfor %}
         </div>
     </div>
 </body>

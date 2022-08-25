@@ -100,7 +100,7 @@ def show_workout_by_date(date):
         'date' : date
     }
     user = User.get_by_id({'id':session['user_id']})
-    workouts = Workout.get_workout_by_date(data)
+    workouts = Workout.get_workout_by_date_join(data)
     return render_template('show_workouts_by_date.html', workouts=workouts, user=user)
 
 

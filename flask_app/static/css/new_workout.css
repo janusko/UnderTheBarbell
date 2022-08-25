@@ -1,3 +1,11 @@
+@import url(//db.onlinewebfonts.com/c/d2c52a64cb362f280d891dd4980160e5?family=Edo);
+
+@font-face {
+    font-family: "Edo";
+    src: url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.eot");
+    src: url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.woff") format("woff"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.svg#Edo") format("svg");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -83,6 +91,7 @@ a {
 
 .navbar a {
     color: white;
+    font-family: "Edo";
 }
 
 .below-nav-bar-logo {
@@ -108,6 +117,7 @@ a {
     box-shadow: 6px 6px black;
     font-weight: lighter;
     padding: 20px 20px;
+    border-radius: 20px;
 }
 
 .add-form input, select, textarea {
@@ -133,4 +143,8 @@ a {
     width: 400px;
     margin-left: 60%;
     margin-top: 60px;
+}
+
+.btn {
+    font-family: "Edo";
 }

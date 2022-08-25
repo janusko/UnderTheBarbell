@@ -1,3 +1,11 @@
+@import url(//db.onlinewebfonts.com/c/d2c52a64cb362f280d891dd4980160e5?family=Edo);
+
+@font-face {
+    font-family: "Edo";
+    src: url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.eot");
+    src: url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.woff") format("woff"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d2c52a64cb362f280d891dd4980160e5.svg#Edo") format("svg");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -51,14 +59,14 @@ a {
 /* NAV BAR */
 
 .navbar {
-    background-color: rgb(10,86,216);
+    background-color: rgb(10, 86, 216);
     color: white;
     width: 100%;
     height: 100px;
 }
 
 .navbar .btn-workouts {
-    color: rgb(10,86,216);
+    color: rgb(10, 86, 216);
 }
 
 .navbar .btn-logout {
@@ -80,6 +88,7 @@ a {
 
 .navbar a {
     color: white;
+    font-family: "Edo";
 }
 
 
@@ -97,10 +106,15 @@ table {
     margin-left: 120px;
 }
 
+.add-admin {
+    margin-right: 120px;
+    font-family: "Edo";
+}
+
 
 /* QUOTE API */
 .quote-container {
-    background-color: rgb(10,86,216);
+    background-color: rgb(10, 86, 216);
     color: white;
     width: 65%;
     height: auto;
@@ -108,15 +122,15 @@ table {
     box-shadow: 6px 6px black, 6px 6px lightslategray;
     font-weight: lighter;
     padding: 20px 20px;
-    /* border-radius: 20px; */
+    border-radius: 20px;
     margin-left: 17%;
     margin-top: 40px;
     margin-bottom: 40px;
 }
 
-/* .quote-container .btn {
-    color: rgb(10,86,216);
-} */
+.quote-container .btn {
+    font-family: "Edo";
+}
 
 .quote-author {
     color: goldenrod

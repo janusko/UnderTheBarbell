@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit a Workout</title>
+    <link rel="stylesheet" href="../static/css/edit.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div>
+        {% for message in get_flashed_messages() %}
+        <p>{{message}}</p>
+        {% endfor %}
+
+        <div class="navbar d-flex justify-content-between">
+            <h1><a href="/">Under the Barbell</a></h1>
+            <div>
+                <a href="/welcome" class="btn btn-light btn-dashboard">Dashboard</a>
+                <a href="/users/logout" class="btn btn-danger btn-logout">Logout</a>
+            </div>
+        </div>
+
+
+        <h3 class="statement">Add an admin</h3>
+        <form action="/update/admin" method="post">
+            <div class="d-flex justify-content-between">
+                <div class="add-admin">
+                    <select name="id">
+                        <!-- key in request form-->
+                        {% for user in all_users %}
+                        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+            </div>
+            <button class="btn btn-dark">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
