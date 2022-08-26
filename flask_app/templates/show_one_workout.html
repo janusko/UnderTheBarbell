@@ -24,25 +24,35 @@
 
         <!-- WORKOUT INFO -->
         <div class="d-flex justify-content-between welcome-name">
-            <h3>{{workout.athlete.first_name}} {{workout.athlete.last_name}}'s {{ workout.name }} workout on {{ workout.date }}</h3>
-        </div>
-        <div class="workout-info">
-            {% if user.admin == 9 %}
-            <p><span>User ID</span>: <a href="">{{ workout.user_id }}</a></p>
-            {% endif %}
-            <p><span>Number of Reps</span>: {{ workout.reps }}</p>
-            <p><span>Workout Notes</span>: {{ workout.description }}</p>
-            <a href="/workouts/{{workout.id}}/edit" class="btn btn-light btn-edit">edit</a>
-            <a href="/workouts/{{workout.id}}/delete" class="btn btn-danger btn-delete">delete</a>
-        </div>
-        <div class="admin">
-            <div class="admin-comment-prompt">
-                <p><span>Comments from your PT</span>: {{ workout.comments }}</p>
+            <div>
+                <h3>Welcome, {{user.first_name}}</h3>
             </div>
-            <div class="admin-comments">
-                {% if user.admin == 9 %}
-                <a href="/workouts/{{workout.id}}/comment" class="btn btn-dark">Leave a comment on this workout</a>
-                {% endif %}
+        </div>
+        <div class="d-flex justify-content-between">
+            <div>
+                <div class="workout-info">
+                    {% if user.admin == 9 %}
+                    <p><span>User</span>: {{workout.athlete.first_name}} {{workout.athlete.last_name}}</a></p>
+                    {% endif %}
+                    <p><span>Workout Date</span>: {{ workout.date }}</p>
+                    <p><span>Number of Reps</span>: {{ workout.reps }}</p>
+                    <p><span>Workout Notes</span>: {{ workout.description }}</p>
+                    <a href="/workouts/{{workout.id}}/edit" class="btn btn-light btn-edit">edit</a>
+                    <a href="/workouts/{{workout.id}}/delete" class="btn btn-danger btn-delete">delete</a>
+                </div>
+                <div class="admin">
+                    <div class="admin-comment-prompt">
+                        <p><span>Comments from your PT</span>: {{ workout.comments }}</p>
+                    </div>
+                    <div class="admin-comments">
+                        {% if user.admin == 9 %}
+                        <a href="/workouts/{{workout.id}}/comment" class="btn btn-dark">Leave a comment on this workout</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="right-logo">
+                <img src="{{ url_for('static', filename='imgs/square.jpg') }}" alt="logo">
             </div>
         </div>
     </div>

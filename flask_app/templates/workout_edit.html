@@ -9,12 +9,14 @@
     <link rel="stylesheet" href="../static/css/edit.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="//db.onlinewebfonts.com/c/d2c52a64cb362f280d891dd4980160e5?family=Edo" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/edit.css') }}">
 </head>
 
 <body>
     <div>
         {% for message in get_flashed_messages() %}
-        <p>{{message}}</p>
+            <p>{{message}}</p>
         {% endfor %}
 
         <div class="navbar d-flex justify-content-between">
@@ -26,7 +28,7 @@
         </div>
 
 
-        <h3 class="statement">Edit your workout!</h3>
+        <h3 class="welcome-name">Edit your workout!</h3>
         <form action="/workouts/{{workout.id}}/update" method="post" class="form">
             <div class="d-flex justify-content-between">
                 <!-- NAME, REPS, AND DESCRIPTION -->
@@ -51,8 +53,11 @@
                     <label for="date">Date of Workout</label>
                     <input type="date" name="date" id="date" class="form-control" value="{{workout.date}}">
                 </div>
+                <div class="right-logo">
+                    <img src="{{ url_for('static', filename='/imgs/square.jpg') }}" alt="logo">
+                </div>
             </div>
-            <button class="btn btn-light">Submit</button>
+            <button class="btn btn-dark btn-submit">Submit</button>
         </form>
     </div>
 </body>

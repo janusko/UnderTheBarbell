@@ -27,7 +27,7 @@
         <h3 class="welcome-name">Add to your workouts!</h3>
         <div class="flash">
             {% for message in get_flashed_messages() %}
-            <p>{{message}}</p>
+                <p>{{message}}</p>
             {% endfor %}
         </div>
         
@@ -58,7 +58,7 @@
                     <button class="btn btn-dark">Submit</button>
                 </div>
                 <div class="right-logo">
-                    <img src="../static/imgs/square.jpg" alt="logo">
+                    <img src="{{ url_for('static', filename='imgs/square.jpg') }}" alt="logo">
                 </div>
             </div>
             

@@ -60,6 +60,7 @@ a {
 
 #nav {
     background-color: rgb(10,86,216);
+    box-shadow: 6px 6px black;
     color: white;
     width: 100%;
     height: 100px;
@@ -68,7 +69,6 @@ a {
 #nav a {
     color: white;
     font-size: 30px;
-    color: whitesmoke;
     font-weight: lighter;
     text-shadow: 2px 2px black;
     font-family: "Edo";
@@ -146,13 +146,10 @@ a {
 .about_content img {
     height: 300px;
     border-radius: 10px;
-    /* margin-right: 40px;; */
 }
 
 .about_content .portrait {
     text-align: center;
-    /* background-color: rgb(10,86,216); */
-    /* border-right: 3px solid black; */
     margin-top: 40px;
 }
 
@@ -160,11 +157,14 @@ a {
     margin-left: 40px;
     font-size: 20px;
     margin-top: 40px;
+}
 
+.portrait h3 {
+    margin-top: 10px;
 }
 
 .about_content .bio p {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 
@@ -225,6 +225,7 @@ margin-bottom: 50px;
 
 .register h1 {
     text-shadow: 3px 3px black;
+    font-family: "Edo";
 }
 
 
@@ -243,11 +244,13 @@ margin-bottom: 50px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
-    /* border-radius: 10px; */
+    border-radius: 10px;
 }
 
 .login h1 {
     text-shadow: 3px 3px black;
+    font-family: "Edo";
+
 }
 
 .login-container button {
@@ -263,8 +266,6 @@ margin-bottom: 50px;
     margin-left: 12%;
 }
 
-/* .below-nav-bar-logo {
-    border-bottom: 3px solid black;
-
-} */
-
+.below-nav-bar-logo {
+    margin-top: 10px;
+}

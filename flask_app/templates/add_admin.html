@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit a Workout</title>
-    <link rel="stylesheet" href="../static/css/edit.css">
+    <link href="//db.onlinewebfonts.com/c/d2c52a64cb362f280d891dd4980160e5?family=Edo" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/add_admin.css') }}">
 </head>
 
 <body>
@@ -26,20 +27,22 @@
         </div>
 
 
-        <h3 class="statement">Add an admin</h3>
+        <h3 class="welcome-name">Add an admin</h3>
         <form action="/update/admin" method="post">
             <div class="d-flex justify-content-between">
                 <div class="add-admin">
-                    <select name="id">
+                    <select name="id" class="form-control">
                         <!-- key in request form-->
                         {% for user in all_users %}
                         <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
                         {% endfor %}
                     </select>
-                    
+                    <button class="btn btn-dark btn-submit">Submit</button>
+                </div>
+                <div class="right-logo">
+                    <img src="{{ url_for('static', filename='imgs/square.jpg') }}" alt="logo">
                 </div>
             </div>
-            <button class="btn btn-dark">Submit</button>
         </form>
     </div>
 </body>
